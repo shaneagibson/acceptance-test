@@ -20,7 +20,7 @@ pipeline {
 
         stage("Test") {
             steps {
-                sh './scripts/test.sh ci'
+                sh './scripts/test.sh $BRANCH_NAME'
             }
         }
 
