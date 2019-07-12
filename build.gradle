@@ -1,0 +1,35 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+}
+
+plugins {
+  id 'java'
+}
+
+group 'platform'
+version '1.0.0'
+
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
+
+repositories {
+  mavenCentral()
+}
+
+dependencies { 
+  testCompile('junit:junit:4.12')
+  compile('com.mashape.unirest:unirest-java:1.4.9')
+  testCompile('org.junit.jupiter:junit-jupiter-params:5.1.0')
+  testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.1.0')
+  testRuntimeOnly('org.junit.vintage:junit-vintage-engine:5.1.0')
+}
+
+test {
+  testLogging {
+    exceptionFormat = 'full'
+  }
+  systemProperty 'environment', System.getProperty('environment')
+  useJUnitPlatform()
+}
